@@ -1,4 +1,4 @@
-const apiUrl = 'http://localhost:5000/orders';
+const apiUrl = "/api/orders";
 
 // Lista de estatus sincronizada con el backend
 const statuses = [
