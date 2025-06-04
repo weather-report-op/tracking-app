@@ -35,7 +35,8 @@ async function loadOrders() {
       row.appendChild(idCell);
 
       const statusCell = document.createElement('td');
-      statusCell.textContent = order.status;
+      const statusText = statuses[order.statusIndex] || order.status || '';
+      statusCell.textContent = statusText;
       row.appendChild(statusCell);
 
       tbody.appendChild(row);
