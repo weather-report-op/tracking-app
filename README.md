@@ -32,5 +32,10 @@ GitHub Actions workflows handle Firebase Hosting deployments:
 - `.github/workflows/deploy-preview.yml` creates a preview channel for every pull request and posts the URL in the PR.
 - `.github/workflows/deploy-prod.yml` deploys the current state of `main` to the live channel.
 
-To enable deployments, create a service account in Firebase and add its JSON credentials to your repository's secrets as `FIREBASE_SERVICE_ACCOUNT`.
+Before these workflows can run successfully you must provide a Firebase service account key:
+
+1. Run `firebase init hosting:github` in your local project and follow the prompts to generate a service account JSON file.
+2. In your repository, navigate to **Settings → Secrets and variables → Actions** and add a new secret named `FIREBASE_SERVICE_ACCOUNT` containing the contents of that JSON file.
+
+Without this secret the deploy steps will fail.
 
