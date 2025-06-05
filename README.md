@@ -27,7 +27,10 @@ Running this command will execute `test.js` in the project root.
 
 ## Continuous Deployment
 
-A GitHub Actions workflow (`.github/workflows/firebase-deploy.yml`) automatically deploys the project to Firebase Hosting when changes are pushed to the `main` branch.
+GitHub Actions workflows handle Firebase Hosting deployments:
+
+- `.github/workflows/deploy-preview.yml` creates a preview channel for every pull request and posts the URL in the PR.
+- `.github/workflows/deploy-prod.yml` deploys the current state of `main` to the live channel.
 
 To enable deployments, create a service account in Firebase and add its JSON credentials to your repository's secrets as `FIREBASE_SERVICE_ACCOUNT`.
 
